@@ -1,1 +1,24 @@
-
+server:
+  port: 9090
+spring:
+  datasource:
+    rw:
+      driverClassName: com.mysql.jdbc.Driver
+      url: jdbc:mysql://121.42.242.139:3306/im?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull&useSSL=false
+      username: root
+      password: VBgUTxLK
+      test-on-borrow: true
+      test-on-connect: true
+      test-on-return:  true
+      test-while-idle: true
+      use-disposable-connection-facade: true
+    wave:
+      driverClassName: com.mysql.jdbc.Driver
+      url: jdbc:mysql://121.42.242.139:3306/im?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull&useSSL=false
+      username: root
+      password: VBgUTxLK
+      test-on-borrow: true
+      test-on-connect: true
+      test-on-return:  true
+      test-while-idle: true
+      use-disposable-connection-facade: true

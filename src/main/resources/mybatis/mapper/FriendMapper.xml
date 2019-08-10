@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cn.im.dao.FriendDao">
+    <insert id="saveFriend" keyColumn="friend.id">
+       INSERT INTO friend(
+          user_id,
+          friend_id,
+          create_time,
+          update_time
+        )values (
+        #{friend.userId},
+        #{friend.friendId},
+        #{friend.createTime},
+        #{friend.updateTime}
+        )
+    </insert>
+
+    <select id="findByUserId" resultType="com.cn.im.model.FriendModel">
+        select * from  friend where user_id=#{userId}
+    </select>
+</mapper>

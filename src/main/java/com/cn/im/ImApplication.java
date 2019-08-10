@@ -1,5 +1,6 @@
 package com.cn.im;
 
+import com.cn.im.common.base.BeanProvider;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.scheduling.annotation.EnableAsync;
@@ -9,7 +10,7 @@ import org.springframework.scheduling.annotation.EnableAsync;
 public class ImApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(ImApplication.class, args);
+        BeanProvider.initialize(SpringApplication.run(ImApplication.class, args));
     }
 
 }

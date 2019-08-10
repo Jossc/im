@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cn.im.dao.MessageDao">
+    <insert id="saveMessage" keyColumn="message.id">
+        insert into message(
+            message_type,
+            from_user_id,
+            to_user_id,
+            send_time,
+            content,
+            update_time,
+            version
+        )values(
+            #{message.messageType},
+            #{message.fromUserId},
+            #{message.toUserId},
+            #{message.sendTime},
+            #{message.content},
+            #{message.updateTime},
+            #{message.version}
+        )
+    </insert>
+
+    <select id="findByUserId" resultType="com.cn.im.model.Message">
+        select  * from message where from_user_id = #{userId}
+    </select>
+</mapper>

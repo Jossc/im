@@ -1,7 +1,8 @@
 package com.cn.im.config.data;
 
+
+import org.springframework.boot.autoconfigure.jdbc.DataSourceBuilder;
 import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.boot.jdbc.DataSourceBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
@@ -26,6 +27,13 @@ public class DataSourceConfig {
     @Bean(name = "rwDataSource")
     @ConfigurationProperties(prefix = "spring.datasource.rw")
     public DataSource writeDataSource() {
+        return DataSourceBuilder.create().build();
+    }
+
+
+    @Bean(name = "waveDataSource")
+    @ConfigurationProperties(prefix = "spring.datasource.wave")
+    public DataSource waveDataSource() {
         return DataSourceBuilder.create().build();
     }
 }
