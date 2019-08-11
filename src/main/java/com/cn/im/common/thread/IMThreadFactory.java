@@ -16,7 +16,7 @@ public class IMThreadFactory implements ThreadFactory {
 
     private String groupName;
 
-    private final boolean daemo;
+    private final boolean daemon;
 
     private AtomicInteger idGenerator = new AtomicInteger(1);
 
@@ -24,16 +24,16 @@ public class IMThreadFactory implements ThreadFactory {
         this(group, false);
     }
 
-    public IMThreadFactory(String group, boolean daemo) {
+    public IMThreadFactory(String group, boolean daemon) {
         this.groupName = group;
-        this.daemo = daemo;
+        this.daemon = daemon;
     }
 
     @Override
     public Thread newThread(Runnable r) {
         String name = getNextThreadName();
         Thread ret = new Thread(threadGroup, r, name, 0);
-        ret.setDaemon(daemo);
+        ret.setDaemon(daemon);
         return ret;
     }
 
