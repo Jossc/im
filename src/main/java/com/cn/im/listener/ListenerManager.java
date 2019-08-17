@@ -5,7 +5,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
 import java.lang.reflect.Method;
-import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -48,17 +47,18 @@ public class ListenerManager {
 
 
     /**
-     * 分发给具体监听器执行
+     * 分发事件
      *
      * @param handler object
-     * @param event   时间
+     * @param event   事件
      */
-    public void fireEvent(Object handler, BaseEvent event) {
+    public void dispatcherEvent(Object handler, BaseEvent event) {
+        log.info("handler {},even t{}", handler, event);
         try {
             Method method = concurrentHashMap.get(getKey(handler, event.getEventType()));
             method.invoke(handler, event);
         } catch (Exception e) {
-            log.error("", e);
+            log.error("exception", e);
         }
     }
 

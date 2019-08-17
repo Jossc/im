@@ -5,7 +5,6 @@ import com.cn.im.message.req.MessageToUser;
 import com.cn.im.session.IoSession;
 import lombok.Setter;
 
-import static com.cn.im.message.enums.PacketType.ResChatToUser;
 
 /**
  * @ClassName ChatService
